@@ -15,6 +15,12 @@ const Authenticate = () => {
     const [response, setResponse] = useState<AuthResponse>();
 
     useEffect(() => {
+        if (searchParams.get('code') === null || searchParams.get('state') === null) {
+            return
+        }
+        if (response !== undefined) {
+            return
+        }
         fetch(`${authUri}?code=${searchParams.get('code')}&state=${searchParams.get('state')}`, {
             method: 'POST',
         }).then((res) => res.json())

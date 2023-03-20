@@ -1,12 +1,12 @@
+import json
+import urllib.parse as urlparse
+
 import requests
 from flask import Flask, request
 from flask_cors import CORS
-import urllib.parse as urlparse
-import json
 
 from env import Env
 from utils import Token
-
 
 app = Flask(__name__)
 token = Token()
@@ -49,7 +49,6 @@ def authenticate():
             "token": "Unable to authenticate token",
             "user": "Unable to authenticate user"
         }
-
 
 
 if __name__ == "__main__":
